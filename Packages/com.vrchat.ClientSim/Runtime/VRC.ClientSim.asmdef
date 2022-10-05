@@ -5,7 +5,8 @@
         "Unity.InputSystem",
         "VRC.Udon",
         "VRC.SDKBase",
-        "VRC.ClientSim.SelectionHighlight"
+        "VRC.ClientSim.SelectionHighlight",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
