@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 public class UdonUI : MonoBehaviour
@@ -17,5 +20,12 @@ public class UdonUI : MonoBehaviour
         rectTransform.position += transform.position;
     }
 
+#if UNITY_EDITOR
+    public void Reset()
+    {
+        displaySettings = new UIDisplaySettings();
+        displaySettings.prefabHolder = (UIPrefabHolder)AssetDatabase.LoadAssetAtPath("Packages/com.vrchat.clientsim/Runtime/Resources/ClientSim/UdonUI/PrefabHolderBase.asset", typeof(UIPrefabHolder));
+    }
+#endif
 
 }

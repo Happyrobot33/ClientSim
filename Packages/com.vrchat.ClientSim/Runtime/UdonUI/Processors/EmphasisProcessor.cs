@@ -33,6 +33,11 @@ public class EmphasisProcessor : InlineProcessorBase
                 post = "</i>";
             }
         }
+        else if (emphasis.DelimiterChar == '~')
+        {
+            pre = "<s>";
+            post = "</s>";
+        }
 
         return pre + text + post;
     }

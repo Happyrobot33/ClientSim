@@ -15,6 +15,7 @@ public class UIDisplaySettings
     public DisplayType displayType;
     public Vector3 offset;
     public Vector2 size = new Vector2(500,500);
+    public float rotation = 0;
 
     public UIPrefabHolder prefabHolder;
 }

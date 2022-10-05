@@ -14,10 +14,13 @@ public class UIGenerator
     };
 
     private static BlockProcessorBase[] blockProcessors =  {
+        new HeadingProcessor(),
+        new FencedCodeProcessor(),
         new TextProcessor()
     };
 
     private static InlineProcessorBase[] inlineProcessors =  {
+        new CodeProcessor(),
         new LiteralInlineProcessor(),
         new LineBreakProcessor(),
         new EmphasisProcessor()
@@ -38,6 +41,7 @@ public class UIGenerator
         if (display == null) return null;
 
         display.MainObject.sizeDelta = displaySettings.size;
+        display.MainObject.Rotate(Vector3.up, displaySettings.rotation);
 
         List<RectTransform> rectTransforms = new List<RectTransform>();
 
