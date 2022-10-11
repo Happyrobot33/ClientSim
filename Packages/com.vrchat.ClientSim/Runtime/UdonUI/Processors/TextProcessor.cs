@@ -18,11 +18,7 @@ public class TextProcessor : BlockProcessorBase
         GameObject gameObject = GameObject.Instantiate(settings.prefabHolder.Text);
         RectTransform transform = gameObject.GetComponent<RectTransform>();
         TextMeshProUGUI textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
-
-        Debug.Log(paragraph.ProcessInlines);
-
-        string text = UIGenerator.GenerateUIFromInlineContainer(paragraph.Inline);
-        textMeshPro.text = string.IsNullOrEmpty(text) ? " ": text;
+        textMeshPro.text = UIGenerator.GenerateUIFromInlineContainer(paragraph.Inline);
 
         return transform;
     }

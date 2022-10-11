@@ -185,7 +185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.011962891}
+  m_AnchoredPosition: {x: 0, y: 0.00048828125}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8671076746807305907
@@ -381,8 +381,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7026207099820033288}
   m_HandleRect: {fileID: 6227217797784747743}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.999975
+  m_Value: 1
+  m_Size: 0.9999918
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 6072837323393453914}
   - component: {fileID: 3845743122255525714}
   - component: {fileID: 6510816266225032268}
+  - component: {fileID: 6015736229250923815}
   m_Layer: 8
   m_Name: WorldCanvas
   m_TagString: Untagged
@@ -663,6 +664,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 500, y: 500, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!225 &6015736229250923815
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072837323393453912}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9137572963750925136
 GameObject:
   m_ObjectHideFlags: 0

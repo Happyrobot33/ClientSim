@@ -348,6 +348,11 @@ namespace VRC.SDK3.ClientSim
             return obj.GetInstanceID().ToString();
         }
 
+        internal ClientSimPlayerManager GetClientSimPlayerManager()
+        {
+            return _playerManager;
+        }
+
         #region VRChat SDK Links
 
         // If adding to this list, be sure to also remove the link in the RemoveSDKLinks method 

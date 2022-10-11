@@ -1,4 +1,5 @@
-﻿using Markdig.Syntax;
+﻿using Markdig.Helpers;
+using Markdig.Syntax;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,19 +18,18 @@ public class FencedCodeProcessor : BlockProcessorBase
     public override RectTransform ProcessBlock(UIDisplaySettings settings, Block block)
     {
         FencedCodeBlock fencedCode = (FencedCodeBlock)block;
-        GameObject gameObject = GameObject.Instantiate(settings.prefabHolder.Text);
+        GameObject gameObject = GameObject.Instantiate(settings.prefabHolder.FencedCode);
         RectTransform transform = gameObject.GetComponent<RectTransform>();
-        TextMeshProUGUI textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI textMeshPro = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
-        Debug.Log(fencedCode.ProcessInlines);
         StringBuilder builder = new StringBuilder();
 
-        foreach(CodeBlockLine line in fencedCode.CodeBlockLines)
+        foreach(StringLine line in fencedCode.Lines.Lines)
         {
-            builder.Append(line.ToString());
+            builder.AppendLine(line.ToString());
         }
 
-        textMeshPro.text = fencedCode.Info;
+        textMeshPro.text = builder.ToString();
 
         return transform;
     }

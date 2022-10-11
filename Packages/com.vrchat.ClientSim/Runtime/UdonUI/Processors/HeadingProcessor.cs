@@ -19,8 +19,6 @@ public class HeadingProcessor : BlockProcessorBase
         RectTransform transform = gameObject.GetComponent<RectTransform>();
         TextMeshProUGUI textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
 
-        Debug.Log(heading.ProcessInlines);
-
         string text = UIGenerator.GenerateUIFromInlineContainer(heading.Inline);
         textMeshPro.text = $"<style=\"H{heading.HeaderCharCount+1}\">" + (string.IsNullOrEmpty(text) ? " " : text) + "</style>";
 
