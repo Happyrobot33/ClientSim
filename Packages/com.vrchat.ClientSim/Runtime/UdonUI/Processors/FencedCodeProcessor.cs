@@ -23,10 +23,12 @@ public class FencedCodeProcessor : BlockProcessorBase
         TextMeshProUGUI textMeshPro = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
         StringBuilder builder = new StringBuilder();
-
-        foreach(StringLine line in fencedCode.Lines.Lines)
+        
+        for (int i = 0; i < fencedCode.Lines.Count; i++)
         {
-            builder.AppendLine(line.ToString());
+            string code = fencedCode.Lines.Lines[i].ToString();
+            Debug.Log("\"" + code + "\"");
+            builder.AppendLine(code);
         }
 
         textMeshPro.text = builder.ToString();

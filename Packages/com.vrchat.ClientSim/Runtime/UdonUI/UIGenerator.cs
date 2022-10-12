@@ -23,6 +23,7 @@ public class UIGenerator
     };
 
     private static InlineProcessorBase[] inlineProcessors =  {
+        new LinkInlineProcessor(),
         new CodeProcessor(),
         new LiteralInlineProcessor(),
         new LineBreakProcessor(),
@@ -46,6 +47,10 @@ public class UIGenerator
         display.MainObject.sizeDelta = displaySettings.size;
         display.MainObject.Rotate(Vector3.up, displaySettings.rotation);
         display.MainObject.localScale *= displaySettings.Scale;
+
+        display.Tick.gameObject.SetActive(displaySettings.tickEnabled);
+        display.Tick.anchoredPosition = GetRectangleBoundsPositionForAngle(displaySettings.size / 2,displaySettings.tickRotation);
+        display.Tick.localRotation = Quaternion.Euler(0,0,GetRotationBoundsFromAngle(displaySettings.tickRotation));
 
         List<RectTransform> rectTransforms = new List<RectTransform>();
 
@@ -98,8 +103,6 @@ public class UIGenerator
     {
         Type type = block.GetType();
         Debug.Log($"Block type: {type}");
-
-        
         foreach (BlockProcessorBase blockProcessor in blockProcessors)
         {
             if (blockProcessor.IsTypeOf(type))
@@ -131,5 +134,35 @@ public class UIGenerator
         }
 
         return stringBuilder.ToString();
+    }
+
+    private static Vector2 GetRectangleBoundsPositionForAngle(Vector2 bounds, float angle)
+    {
+        bounds += new Vector2(32, 32);
+        float x = Mathf.Cos(angle * Mathf.Deg2Rad);
+        float y = Mathf.Sin(angle * Mathf.Deg2Rad);
+
+        Vector2 position = new Vector2();
+
+        if(Mathf.Abs(x) < Mathf.Abs(y))
+        {
+            position.x = x * bounds.x;
+            position.y = (y > 0 ? 1 : -1) * bounds.y;
+        }
+        else
+        {
+            position.y = y * bounds.y;
+            position.x = (x > 0 ? 1 : -1) * bounds.x;
+        }
+
+        return position;
+    }
+
+    private static float GetRotationBoundsFromAngle(float angle)
+    {
+        angle -= 90;
+        angle /= 90;
+        int angleConverted = (int)angle;
+        return angleConverted * 90;
     }
 }

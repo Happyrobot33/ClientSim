@@ -21,7 +21,7 @@ public class ListitemProcessor : BlockProcessorBase
 
         TextMeshProUGUI textMeshPro = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
-        textMeshPro.text = ListItem.Order == 0 ? "* " : ListItem.Order + ". ";
+        textMeshPro.text = ListItem.Order == 0 ? "• " : ListItem.Order + ". ";
 
         foreach (Block blockItem in ListItem)
         {

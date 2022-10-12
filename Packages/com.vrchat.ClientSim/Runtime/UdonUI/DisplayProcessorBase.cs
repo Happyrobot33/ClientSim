@@ -19,6 +19,7 @@ public abstract class DisplayProcessorBase
     public class GeneratedDisplay
     {
         public RectTransform MainObject;
+        public RectTransform Tick;
         public RectTransform Content;
     }
 }

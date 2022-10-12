@@ -12,6 +12,7 @@ public class UdonUI : MonoBehaviour
     private TextAsset textAsset;
     [SerializeField]
     private UIDisplaySettings displaySettings;
+
     private RectTransform rectTransform;
 
     private Coroutine currentAnimation;

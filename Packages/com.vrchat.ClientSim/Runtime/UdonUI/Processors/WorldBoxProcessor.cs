@@ -18,6 +18,7 @@ public class WorldBoxProcessor : DisplayProcessorBase
         };
         
         display.Content = (RectTransform)display.MainObject.Find("Scroll View/Viewport/Content").transform;
+        display.Tick = (RectTransform)display.MainObject.Find("Tick").transform;
         return display;
     }
 }
