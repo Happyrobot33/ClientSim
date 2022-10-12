@@ -76,7 +76,7 @@ public class UdonBlockParser : BlockParser
 
         if (processor.TrackTrivia)
         {
-            udon.LinesBefore = processor.UseLinesBefore();
+            //udon.LinesBefore = processor.UseLinesBefore();
             udon.NewLine = processor.Line.NewLine;
         }
         else
