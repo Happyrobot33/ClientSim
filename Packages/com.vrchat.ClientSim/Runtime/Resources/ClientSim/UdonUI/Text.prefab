@@ -85,7 +85,7 @@ MonoBehaviour:
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 11400000, guid: 8fe29a9fee8715646a62e35b2f08b11b, type: 2}
+  m_StyleSheet: {fileID: 11400000, guid: 07e68eacdd9b6004d95d4533f7441e6f, type: 2}
   m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:

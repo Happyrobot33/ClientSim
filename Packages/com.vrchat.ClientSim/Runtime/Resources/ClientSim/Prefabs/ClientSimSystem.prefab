@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1880611392478369428}
   - component: {fileID: 1420568661224557865}
+  - component: {fileID: 4692726478358894761}
   m_Layer: 0
   m_Name: ClientSimSystem
   m_TagString: EditorOnly
@@ -61,6 +62,18 @@ MonoBehaviour:
   playerSpawner: {fileID: 115519208876573542}
   proxyObjectPrefab: {fileID: 1211698646162851569, guid: 06d1c79a3adb363488e1418d1e7395d5,
     type: 3}
+--- !u!114 &4692726478358894761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592171796381713785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95599a3bbc04f6d458d1802f334a03ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1202083094369775472
 PrefabInstance:
   m_ObjectHideFlags: 0
