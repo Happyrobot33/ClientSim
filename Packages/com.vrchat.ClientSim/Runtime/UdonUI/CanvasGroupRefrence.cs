@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace VRC.UdonUI
 {
     public class CanvasGroupRefrence : ICanvasGroupRefrence
