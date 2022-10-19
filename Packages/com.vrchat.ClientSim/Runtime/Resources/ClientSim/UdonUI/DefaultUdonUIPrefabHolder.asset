@@ -20,6 +20,8 @@ MonoBehaviour:
     type: 3}
   ListPrefab: {fileID: 7425932871769406069, guid: 6de7d9b32b5219e428be50fb0f23cafc,
     type: 3}
+  ListItemPrefab: {fileID: 77689003686719485, guid: 75542f6e0d93ea7478e9ccde0003199a,
+    type: 3}
   FencedCodePrefab: {fileID: 4693067436104268275, guid: a0f1dd9a4e5730f4e8e17567799ac926,
     type: 3}
   HeadingPrefab: {fileID: 4693067436104268275, guid: 132d273a537766d40bfd91e2b217b885,
