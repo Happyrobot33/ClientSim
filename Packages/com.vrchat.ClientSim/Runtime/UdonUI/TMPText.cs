@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRC.UdonUI;
+using VRC.UdonUI.Interfaces;
 
 public class TMPText : ITMPText
 {

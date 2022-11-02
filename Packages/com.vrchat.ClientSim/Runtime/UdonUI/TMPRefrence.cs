@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using VRC.UdonUI.Interfaces;
 
 namespace VRC.UdonUI
 {

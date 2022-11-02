@@ -38,6 +38,7 @@ namespace VRC.SDK3.ClientSim
             WARNING_PAGE,
             INVALID_SETTINGS_PAGE,
             DELAYED_START_PAGE,
+            UDON_UI_PAGE
         }
         
         // The method to open the settings window is set from Editor context.
@@ -59,6 +60,8 @@ namespace VRC.SDK3.ClientSim
         private GameObject invalidSettingsPage;
         [SerializeField]
         private GameObject delayStartPage;
+        [SerializeField]
+        private GameObject UdonUIPage;
 
 
         [SerializeField]
@@ -217,15 +220,6 @@ namespace VRC.SDK3.ClientSim
             }
         }
 
-        private void SetDisplayedPage(ClientSimDisplayedPage page)
-        {
-            _displayedPage = page;
-            
-            pauseMenu.SetActive(_displayedPage == ClientSimDisplayedPage.PAUSE_MENU);
-            warningsPage.SetActive(_displayedPage == ClientSimDisplayedPage.WARNING_PAGE);
-            delayStartPage.SetActive(_displayedPage == ClientSimDisplayedPage.DELAYED_START_PAGE);
-            invalidSettingsPage.SetActive(_displayedPage == ClientSimDisplayedPage.INVALID_SETTINGS_PAGE);
-        }
 
         private void DisplayInitialPageForPlayer()
         {
@@ -392,9 +386,21 @@ namespace VRC.SDK3.ClientSim
             UpdateCanvasLocation();
         }
 
-#endregion
+        #endregion
 
-#region UI Hooks
+        #region UI Hooks
+
+        [PublicAPI]
+        public void SetDisplayedPage(ClientSimDisplayedPage page)
+        {
+            _displayedPage = page;
+
+            pauseMenu.SetActive(_displayedPage == ClientSimDisplayedPage.PAUSE_MENU);
+            warningsPage.SetActive(_displayedPage == ClientSimDisplayedPage.WARNING_PAGE);
+            delayStartPage.SetActive(_displayedPage == ClientSimDisplayedPage.DELAYED_START_PAGE);
+            invalidSettingsPage.SetActive(_displayedPage == ClientSimDisplayedPage.INVALID_SETTINGS_PAGE);
+            UdonUIPage.SetActive(_displayedPage == ClientSimDisplayedPage.UDON_UI_PAGE);
+        }
 
         [PublicAPI]
         public void WarningAccepted()

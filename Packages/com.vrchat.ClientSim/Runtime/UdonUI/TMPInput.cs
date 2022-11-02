@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using VRC.UdonUI;
+using VRC.UdonUI.Interfaces;
 using static TMPro.TMP_InputField;
 
 public class TMPInput : ITMPInput

@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PopupPrefab: {fileID: 6072837323393453912, guid: ee3be6fb38411d94eb455ecdb43006b6,
     type: 3}
+  WorldPrefab: {fileID: 2688440645660022021, guid: 4b5ae3c60b2970e43bdd6e6daa902354,
+    type: 3}
+  QuiqMenuPrefab: {fileID: 2688440645660022021, guid: 9051186c5be711c4db0aada2c3d55751,
+    type: 3}
   ContainerPrefab: {fileID: 1929116793749061187, guid: 7615b9da364639646ab5b42a2f628d7d,
     type: 3}
   ParagraphPrefab: {fileID: 4693067436104268275, guid: 132d273a537766d40bfd91e2b217b885,
@@ -29,8 +33,13 @@ MonoBehaviour:
   ValuePrefab: {fileID: 1750968815126427777, guid: 8e1b32795fa2e474b9b7137396a0ea46,
     type: 3}
   ButtonPrefab: {fileID: 0}
+  Vector2Prefab: {fileID: 1750968815126427777, guid: e7168d43e6c7dc44591f2dcea31287ec,
+    type: 3}
+  Vector3Prefab: {fileID: 1750968815126427777, guid: 087306df26de7574eac5a6076118c188,
+    type: 3}
   SliderPrefab: {fileID: 0}
   ImagePrefab: {fileID: 0}
-  TogglePrefab: {fileID: 0}
+  TogglePrefab: {fileID: 1750968815126427777, guid: a7ae12a759104914b945e20d89ceb849,
+    type: 3}
   GroupPrefab: {fileID: 0}
   RefrencePrefab: {fileID: 0}
