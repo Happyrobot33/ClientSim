@@ -32,13 +32,15 @@ MonoBehaviour:
     type: 3}
   ValuePrefab: {fileID: 1750968815126427777, guid: 8e1b32795fa2e474b9b7137396a0ea46,
     type: 3}
-  ButtonPrefab: {fileID: 0}
+  ButtonPrefab: {fileID: 1750968815126427777, guid: 27cae5b1cf4fd034bb66aa86713feae8,
+    type: 3}
   Vector2Prefab: {fileID: 1750968815126427777, guid: e7168d43e6c7dc44591f2dcea31287ec,
     type: 3}
   Vector3Prefab: {fileID: 1750968815126427777, guid: 087306df26de7574eac5a6076118c188,
     type: 3}
   SliderPrefab: {fileID: 0}
-  ImagePrefab: {fileID: 0}
+  ImagePrefab: {fileID: 343705586330191710, guid: 9ca278a11c1fed046800171a430e46b9,
+    type: 3}
   TogglePrefab: {fileID: 1750968815126427777, guid: a7ae12a759104914b945e20d89ceb849,
     type: 3}
   GroupPrefab: {fileID: 0}
