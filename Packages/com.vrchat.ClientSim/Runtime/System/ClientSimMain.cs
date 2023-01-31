@@ -97,8 +97,7 @@ namespace VRC.SDK3.ClientSim
                 }
                 else
                 {
-                    Debug.LogError($"Play mode Stopped because: {e.Message}");
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    Debug.LogError($"Did not start ClientSim because: {e.Message}");
                 }
 #endif
             }
