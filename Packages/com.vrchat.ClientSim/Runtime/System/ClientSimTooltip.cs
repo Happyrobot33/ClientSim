@@ -57,6 +57,11 @@ namespace VRC.SDK3.ClientSim
         
         public void UpdateTooltip(Vector3 playerPos, Vector3 up)
         {
+            if (Interactable == null)
+            {
+                return;
+            }
+            
             Vector3 position = Interactable.GetInteractTextPlacement();
             
             // Rotate to look towards the player while keeping the proper up direction.
