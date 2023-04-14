@@ -46,4 +46,14 @@ jobs:
           echo "unityPackage=${{ env.packageName }}-${{ steps.version.outputs.prop }}.unitypackage" >> $GITHUB_ENV
 
       - name: Create UnityPackage
-        run: ${{env.pathToCi}}/build.cmd BuildUnityPackage --root ${{env.pathToCi}} --unityPackageExportSource $GITHUB_WORKSPACE --unityPackageExportOutput ${{env.unityPackage}} --assetPattern "$GITHUB_WORKSPACE/Packages/${{env.packageName}}/**.*"
+        run: ${{env.pathToCi}}/build.cmd BuildUnityPackage
+        env:
+          root: ${{env.pathToCi}}
+          unityPackageExportSource: $GITHUB_WORKSPACE
+          unityPackageExportOutput: ${{env.unityPackage}}
+          assetPattern: "$GITHUB_WORKSPACE/Packages/${{env.packageName}}/**.*"
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: clientsim unitypackage
+          path: ${{env.unityPackage}}
