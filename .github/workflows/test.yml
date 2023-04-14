@@ -53,6 +53,7 @@ jobs:
           unityPackageExportSource: ${{env.workspace}}
           unityPackageExportOutput: ${{env.unityPackage}}
           assetPattern: "Packages/${{env.packageName}}/**/*.*"
+          skipDep: true
       
       - uses: actions/upload-artifact@v3
         with:
