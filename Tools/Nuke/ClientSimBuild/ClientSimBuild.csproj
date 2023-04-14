@@ -20,4 +20,22 @@
     <PackageDownload Include="docfx.console" Version="[2.59.0]" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\..\..\.github\workflows\cla.yaml">
+      <Link>workflows\cla.yaml</Link>
+    </Content>
+    <Content Include="..\..\..\.github\workflows\preview-netlify.yml">
+      <Link>workflows\preview-netlify.yml</Link>
+    </Content>
+    <Content Include="..\..\..\.github\workflows\publish-doc-site-with-action.yml">
+      <Link>workflows\publish-doc-site-with-action.yml</Link>
+    </Content>
+    <Content Include="..\..\..\.github\workflows\release.yml">
+      <Link>workflows\release.yml</Link>
+    </Content>
+    <Content Include="..\..\..\.github\workflows\test.yml">
+      <Link>workflows\test.yml</Link>
+    </Content>
+  </ItemGroup>
+
 </Project>

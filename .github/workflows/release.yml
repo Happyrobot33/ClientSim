@@ -33,6 +33,7 @@ jobs:
         run: |
           echo "zipFile=${{ env.packageName }}-${{ steps.version.outputs.prop }}".zip >> $GITHUB_ENV
           echo "unityPackage=${{ env.packageName }}-${{ steps.version.outputs.prop }}.unitypackage" >> $GITHUB_ENV
+          echo "workspace=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
       - name: Create Zip
         uses: thedoctor0/zip-release@09336613be18a8208dfa66bd57efafd9e2685657
@@ -41,13 +42,28 @@ jobs:
           directory: "Packages/${{env.packageName}}/"
           filename: "../../${{env.zipFile}}" # make the zip file two directories up, since we start two directories in above
 
-      - run: find "Packages/${{env.packageName}}/" -name \*.meta >> metaList
-
-      - name: Create UnityPackage
-        uses: pCYSl5EDgo/create-unitypackage@cfcd3cf0391a5ef1306342794866a9897c32af0b
+      - uses: actions/checkout@v3 # check out automation repo
         with:
-          package-path: ${{ env.unityPackage }}
-          include-files: metaList
+          repository: vrchat-community/package-list-action
+          path: ${{env.pathToCi}}
+          clean: false # otherwise the local repo will no longer be checked out
+          ref: feature/export-unitypackages
+          
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{env.pathToCi}}/.nuke/temp
+            ~/.nuget/packages
+          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
+          
+      - name: Create UnityPackage
+        run: ${{env.pathToCi}}/build.cmd BuildUnityPackage
+        env:
+          root: ${{env.pathToCi}}
+          unityPackageExportSource: ${{env.workspace}}
+          unityPackageExportOutput: ${{env.unityPackage}}
+          assetPattern: "Packages/${{env.packageName}}/**/*.*"
 
       - name: Make Release
         uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
