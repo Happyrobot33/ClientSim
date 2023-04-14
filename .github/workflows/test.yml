@@ -44,14 +44,15 @@ jobs:
         run: |
           echo "zipFile=${{ env.packageName }}-${{ steps.version.outputs.prop }}".zip >> $GITHUB_ENV
           echo "unityPackage=${{ env.packageName }}-${{ steps.version.outputs.prop }}.unitypackage" >> $GITHUB_ENV
+          echo "workspace=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
       - name: Create UnityPackage
         run: ${{env.pathToCi}}/build.cmd BuildUnityPackage
         env:
           root: ${{env.pathToCi}}
-          unityPackageExportSource: $GITHUB_WORKSPACE
+          unityPackageExportSource: ${{env.workspace}}
           unityPackageExportOutput: ${{env.unityPackage}}
-          assetPattern: "$GITHUB_WORKSPACE/Packages/${{env.packageName}}/**.*"
+          assetPattern: "${{env.workspace}}/Packages/${{env.packageName}}/**.*"
       
       - uses: actions/upload-artifact@v3
         with:
