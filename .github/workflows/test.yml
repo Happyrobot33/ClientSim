@@ -52,7 +52,7 @@ jobs:
           root: ${{env.pathToCi}}
           unityPackageExportSource: ${{env.workspace}}
           unityPackageExportOutput: ${{env.unityPackage}}
-          assetPattern: "${{env.workspace}}/Packages/${{env.packageName}}/**/*"
+          assetPattern: "${{env.workspace}}/Packages/${{env.packageName}}/**/.*"
       
       - uses: actions/upload-artifact@v3
         with:
