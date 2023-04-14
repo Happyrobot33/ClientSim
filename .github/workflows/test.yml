@@ -1,15 +1,49 @@
-name: Placeholder Test Action
+name: Build UnityPackage
 
 on:
   workflow_dispatch:
+    paths: Packages/com.vrchat.ClientSim/**
 
 env:
   packageName: "com.vrchat.ClientSim"
+  pathToCi: ci
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3 # check out this repo
+      - uses: actions/checkout@v3 # check out automation repo
+        with:
+          repository: vrchat-community/package-list-action
+          path: ${{env.pathToCi}}
+          clean: false # otherwise the local repo will no longer be checked out
+          
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{env.pathToCi}}/.nuke/temp
+            ~/.nuget/packages
+          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
+
+      - name: Delete Tests
+        run: |
+          rm -rf "Packages/${{env.packageName}}/Tests"
+          rm -rf "Packages/${{env.packageName}}/Tests.meta"
+
+      - name: get version
+        id: version
+        uses: notiz-dev/github-action-json-property@7c8cf5cc36eb85d8d287a8086a39dac59628eb31
+        with:
+          path: "Packages/${{env.packageName}}/package.json"
+          prop_path: "version"
+
+      - name: Set Environment Variables
+        run: |
+          echo "zipFile=${{ env.packageName }}-${{ steps.version.outputs.prop }}".zip >> $GITHUB_ENV
+          echo "unityPackage=${{ env.packageName }}-${{ steps.version.outputs.prop }}.unitypackage" >> $GITHUB_ENV
+
+      - name: Create UnityPackage
+        run: ${{env.pathToCi}}/build.cmd BuildUnityPackage --root ${{env.pathToCi}} --unityPackageExportSource $GITHUB_WORKSPACE --unityPackageExportOutput ${{env.unityPackage}} --assetPattern "$GITHUB_WORKSPACE/Packages/${{env.packageName}}/**.*"
