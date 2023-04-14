@@ -50,11 +50,11 @@ jobs:
         run: ${{env.pathToCi}}/build.cmd BuildUnityPackage
         env:
           root: ${{env.pathToCi}}
-          unityPackageExportSource: ${{env.workspace}}
+          unityPackageExportSource: /
           unityPackageExportOutput: ${{env.unityPackage}}
-          assetPattern: "${{env.workspace}}/Packages/${{env.packageName}}/**.*"
+          assetPattern: "Packages/${{env.packageName}}/**.*"
       
       - uses: actions/upload-artifact@v3
         with:
-          name: clientsim unitypackage
+          name: ClientSim UnityPackage
           path: ${{env.unityPackage}}
