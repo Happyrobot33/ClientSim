@@ -2,7 +2,6 @@ name: Build UnityPackage
 
 on:
   workflow_dispatch:
-    paths: Packages/com.vrchat.ClientSim/**
 
 env:
   packageName: "com.vrchat.ClientSim"
@@ -19,7 +18,7 @@ jobs:
           repository: vrchat-community/package-list-action
           path: ${{env.pathToCi}}
           clean: false # otherwise the local repo will no longer be checked out
-          ref: feature/automate-unitypackage-creation
+          ref: feature/export-unitypackages
           
       - name: Restore Cache
         uses: actions/cache@v2
